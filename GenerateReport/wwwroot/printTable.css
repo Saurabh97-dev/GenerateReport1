@@ -1,0 +1,119 @@
+﻿
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #2C3E50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #2C3E50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+    a:hover {
+        background-color: #2980b9;
+    }
+
+/* Print styles */
+/* Print styles using @media */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Display everything for print */
+    h1, button, a, header, footer {
+        display: none; /* Ensure header, date, and button are displayed */
+    }
+
+    table {
+        width: 100%;
+       /* border-collapse: collapse;*/
+       /* page-break-before: always;*/ /* Start a new page before table */
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .print-header {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .print-date {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+
+    /* Optional - Hide some page elements like navigation if not necessary */
+    /* Example:
+            .navbar, .footer {
+                display: none;
+            }
+            */
+
+}
+@page {
+    size: A4;
+    margin: 10mm; /* Set margins to avoid cutting off content */
+    mso-page-orientation: portrait;
+    page-break-before: always;
+}
+
+/* Control page breaks */
+table {
+    page-break-inside: avoid;
+}
+
+/* Optional: Hide elements that are not needed in the print version */
+.navbar, .footer {
+    display: none;
+}
+
+

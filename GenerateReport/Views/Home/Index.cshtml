@@ -1,0 +1,76 @@
+﻿@model IEnumerable<dynamic>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SST Data Report</title>
+    <link href="~/printtable.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>SST Data Report</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sr No.</th>
+                <th>SST Location</th>
+                <th>SST Name</th>
+                <th>Mobile No.</th>
+                <th>Checking Time</th>
+                <th>Remark & Timing (12:00 AM)</th>
+                <th>Remark & Timing (02:00 AM)</th>
+                <th>Remark & Timing (03:00 AM)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.SrNo</td>
+                    <td>@item.Location</td>
+                    <td>@item.SSTNames</td>
+                    <td>@item.Mobile</td>
+                    <td></td> <!-- Checking Time -->
+                    <td>@item.Remark1</td>
+                    <td>@item.Remark2</td>
+                    <td>@item.Remark3</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <button onclick="printTable()">Print Report</button>
+
+    <div class="print-header">
+        <p class="print-date">Date: <span id="current-date"></span></p>
+    </div>
+    <div style="margin-bottom:100px">
+        <a href="@Url.Action("ExportToExcel", "Home")">Download in Excel</a>
+    </div>
+    <script>
+        // Set the current date
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+
+        // Print the table and current date
+        function printTable() {
+            window.print();
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
